@@ -15,8 +15,8 @@ os.makedirs(input_folder, exist_ok=True)
 os.makedirs(output_folder, exist_ok=True)
 
 # --- IMPORTANT: Configure your Search API Key and CX here ---
-GOOGLE_SEARCH_API_KEY = "AIzaSyCWmgv1AFpe71TNxTRnpWqd51v6fzt1wnY" # Replace with your actual API key
-GOOGLE_SEARCH_CX = "02e8f5e1a0301e45d6"   # Replace with your actual CX ID
+GOOGLE_SEARCH_API_KEY = "" # Replace with your actual API key
+GOOGLE_SEARCH_CX = ""   # Replace with your actual CX ID
 
 # --- 1. OCR Processing Function ---
 def perform_ocr(image_path, output_dir, reader_instance):
