@@ -1,23 +1,9 @@
-This project is a comprehensive AI-powered Business Card Scanner and Contact Extractor, developed using Python, OpenCV, and EasyOCR, integrated with Google Custom Search API for intelligent company name correction. The tool automates the process of extracting structured information from scanned business cards and organizes it into a clean, formatted Excel spreadsheet.
+This project is a Python-based tool created to automatically extract structured information from business card images using Optical Character Recognition (OCR) and advanced text parsing techniques. Its main objective is to convert unstructured, scanned visual content from business cards into clean, categorized, and structured data that can be saved and reused in formats like Excel spreadsheets. It is purpose-built to handle a variety of real-world business cards — including those with complex designs or multiple text elements — and extract key contact fields accurately and consistently.
 
-The workflow begins with advanced image preprocessing techniques using OpenCV, including grayscale conversion, adaptive thresholding, morphological operations for line removal, noise cleaning, image sharpening, and resolution upscaling. These steps significantly enhance OCR accuracy by preparing the card images for robust text recognition.
+The OCR functionality is implemented using the EasyOCR library, which provides support for multilingual text recognition and is known for its balance of accuracy and performance. The code starts by preprocessing the input images using OpenCV to enhance clarity and minimize OCR errors. These preprocessing steps include resizing, grayscale conversion, adaptive thresholding, and noise filtering. Once the image is prepared, the EasyOCR engine detects all textual content, which is then parsed line-by-line to identify key attributes such as the person's name, email address, mobile or landline number, company name, and the physical address.
 
-Text extraction is powered by EasyOCR, which reads the processed images and extracts all visible text. The script then employs sophisticated regex patterns and natural language heuristics to parse out meaningful information such as:
+To increase the reliability of the extracted data, the script includes a custom logic module that refines and validates the recognized text. In particular, the tool uses regular expressions and heuristics to isolate contact fields based on pattern matching. What sets this tool apart from generic OCR extractors is its intelligent company name correction feature. It uses the Google Custom Search API to verify the authenticity and accuracy of the extracted company name by performing web searches using related details like the email domain, the owner's name, and the geographic location. This cross-checking method ensures that even if the OCR misinterprets a logo or partially crops a name, the corrected company name in the final output is closer to the actual registered identity.
 
-Company Name
+The extracted data is compiled and exported into an Excel spreadsheet using the openpyxl library. The Excel output is designed to be not only functional but also user-friendly, with column-wise separation of fields, header formatting, and row-by-row insertion of processed records. This makes it ideal for business professionals, sales teams, CRM users, and administrative staff who often deal with large collections of business cards and require a digital system to manage contacts efficiently.
 
-Owner Name(s)
-
-Email Address
-
-Phone Numbers
-
-Physical Address
-
-For ambiguous or incomplete company names, the system uses the Google Custom Search API to intelligently infer the most likely official company name by cross-referencing the extracted data (like owner names, email domains, or address) with live search results.
-
-The final structured data is then exported into an Excel workbook, with styling and formatting handled via OpenPyXL, including colored headers, column auto-sizing, and consistent data alignment.
-
-Additionally, the script is modular, reusable, and maintains clean logging to help track every step of the OCR, parsing, and correction pipeline. It supports batch processing for multiple images and stores intermediate and final outputs for debugging and review.
-
-This project showcases expertise in computer vision, OCR, data cleaning, regular expressions, Excel automation, and API integration, making it a powerful real-world tool for digitizing contact information from physical media.
+In summary, this project offers a comprehensive pipeline that starts with raw image inputs and ends with a refined, structured data output. It integrates image processing, OCR, API-powered company validation, and Excel export into a single script. The code is purposefully written to automate the full process of transforming business card images into usable data with minimal human intervention. It can be expanded further for use in web applications, mobile-based scanning tools, or as part of larger enterprise data entry solutions.
